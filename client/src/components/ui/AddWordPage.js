@@ -54,6 +54,8 @@ class AddWordPage extends React.Component{
         this.setState({translate: value});
     }
 
+
+
     handleTranslateKeyPress(e){
         if(this.state.word === null || this.state.word === ""){
             e.preventDefault();
@@ -82,8 +84,7 @@ class AddWordPage extends React.Component{
                         onKeyPress={this.handleTranslateKeyPress}/>
                     <button className="ui button" type="button" onClick={this.handleClick}>Add</button>    
                 </form>
-                <div>Перевод</div>
-                <div>{this.state.translates.map(el => (<label>{el} </label>))}</div>
+                <div>Перевод<ul>{this.state.translates.map(el => (<li>{el} </li>))}</ul></div>
             </div>
         )
     }

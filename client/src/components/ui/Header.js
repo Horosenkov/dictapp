@@ -8,6 +8,7 @@ class Header extends React.Component{
                 <HeaderButton buttonInner="Home" url="/"/>
                 <HeaderButton buttonInner="Add word" url="/AddWord"/>
                 <HeaderButton buttonInner="Word list" url="/WordList"/>
+                <HeaderButton buttonInner="Exam" url="/Exam"/>
             </div>
         )
     }

@@ -15,7 +15,9 @@ class WordListPage extends React.Component{
                 (<div className="item">
                     <div className="content">
                     <label>{el.word}: </label>
-                    {el.translates.map(translate => (<label>{translate};</label>))}
+                    <ul>
+                    {el.translates.map(translate => (<li>{translate}</li>))}
+                    </ul>
                     </div>
                 </div>))}
             </div>
