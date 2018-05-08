@@ -2,7 +2,7 @@ import {addNewWordConst} from '../constants/action-types';
 
 const initialState = 
 {
-    words: [{word: 'Hello', translate: 'Привет'}]
+    words: [{word: 'Hello', translates: ["Привет"]}]
 };
 
 const rootReducer = (state = initialState, action) => {

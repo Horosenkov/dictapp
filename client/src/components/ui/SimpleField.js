@@ -5,7 +5,12 @@ class SimpleField extends React.Component{
         return (
             <div class="field">
                 <label>{this.props.label}</label>
-                <input type="text" placeholder={this.props.label} onChange={this.props.onChange} value={this.props.value} />
+                <input type="text" 
+                    placeholder={this.props.label} 
+                    value={this.props.value}
+                    onChange={this.props.onChange} 
+                    onKeyPress={this.props.onKeyPress}
+                     />
             </div>
         )
     }

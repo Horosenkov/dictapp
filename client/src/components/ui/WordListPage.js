@@ -10,11 +10,12 @@ class WordListPage extends React.Component{
     
     render(){
         return (
-            <div className="ui middle aligned divided list">
+            <div className="ui list">
                 {this.props.words.map(el =>
                 (<div className="item">
                     <div className="content">
-                    <label>{el.word} {el.translate}</label>
+                    <label>{el.word}: </label>
+                    {el.translates.map(translate => (<label>{translate};</label>))}
                     </div>
                 </div>))}
             </div>

@@ -18,17 +18,30 @@ class AddWordPage extends React.Component{
         this.state = {
             word: "",
             translate: "",
+            translates: []
         };
 
         this.handleClick = this.handleClick.bind(this);
         this.handleWordField = this.handleWordField.bind(this);
         this.handleTranslateField = this.handleTranslateField.bind(this);
+        this.handleTranslateKeyPress = this.handleTranslateKeyPress.bind(this);
     }
 
     handleClick(e){
         e.preventDefault();
-        this.props.addNewWord({word: this.state.word, translate: this.state.translate})
-        this.setState({word: "", translate: ""});
+
+        if(this.state.translates === undefined || this.state.translates.length < 0){
+            alert("Empty translates")
+            return;
+        }
+
+        if(this.state.word === null || this.state.word === ""){
+            alert("Empty word");
+            return;
+        }
+
+        this.props.addNewWord({word: this.state.word, translates: this.state.translates})
+        this.setState({word: "", translate: "", translates: []});
     }
 
     handleWordField(e){
@@ -41,9 +54,22 @@ class AddWordPage extends React.Component{
         this.setState({translate: value});
     }
 
+    handleTranslateKeyPress(e){
+        if(this.state.word === null || this.state.word === ""){
+            e.preventDefault();
+            alert("Empty word");
+            this.setState({translate: ""});
+            return;
+        }
+        
+        if(e.key === 'Enter'){
+            this.setState({translates: [...this.state.translates, this.state.translate], translate: "" })
+        }
+    }
+
     render(){
         return (
-            <div className="ui grid container">
+            <div className="ui grid">
                 <form className="ui form">
                     <SimpleField 
                         label="Word" 
@@ -52,9 +78,12 @@ class AddWordPage extends React.Component{
                     <SimpleField 
                         label="Translate"
                         value={this.state.translate}
-                        onChange={this.handleTranslateField}/>
-                    <button class="ui button" type="submit" onClick={this.handleClick}>Add</button>    
+                        onChange={this.handleTranslateField}
+                        onKeyPress={this.handleTranslateKeyPress}/>
+                    <button className="ui button" type="button" onClick={this.handleClick}>Add</button>    
                 </form>
+                <div>Перевод</div>
+                <div>{this.state.translates.map(el => (<label>{el} </label>))}</div>
             </div>
         )
     }
