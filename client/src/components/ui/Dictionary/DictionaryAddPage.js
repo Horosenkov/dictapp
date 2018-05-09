@@ -24,6 +24,9 @@ class DictionaryAddPage extends React.Component{
     }
     
     handleClick(){
+        if(this.state.name === undefined || this.state.name === ""){
+            return;
+        }
         this.props.addNewDictionary({name: this.state.name});
         this.setState({name: ""});
     }
