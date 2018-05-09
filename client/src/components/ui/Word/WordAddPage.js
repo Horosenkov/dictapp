@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import SimpleField from './SimpleField';
-import addNewWord from '../redux/actions/addNewWord';
+import SimpleField from '../SimpleField';
+import addNewWord from '../../redux/actions/addNewWord';
+import RedirectButton from '../RedirectButton';
 
 import uuid from 'uuid/v4';
 
@@ -12,7 +13,7 @@ const mapDispatchToProps = dispatch => {
     };
   };
 
-class AddWordPage extends React.Component{
+class WordAddPage extends React.Component{
     constructor(){
         super();
 
@@ -41,7 +42,7 @@ class AddWordPage extends React.Component{
             return;
         }
 
-        //this.props.addNewWord({id: uuid(), word: this.state.word, translates: this.state.translates})
+        this.props.addNewWord({dictId: this.props.match.params.id, word: {id: uuid(), value: this.state.word, translates: this.state.translates}})
         this.setState({word: "", translate: "", translates: []});
     }
 
@@ -54,8 +55,6 @@ class AddWordPage extends React.Component{
         const value = e.target.value;
         this.setState({translate: value});
     }
-
-
 
     handleTranslateKeyPress(e){
         if(this.state.word === null || this.state.word === ""){
@@ -71,6 +70,8 @@ class AddWordPage extends React.Component{
     }
 
     render(){
+        var backUrl = "/Dictionary/" + this.props.match.params.id;
+
         return (
             <div className="ui grid">
                 <form className="ui form">
@@ -86,9 +87,10 @@ class AddWordPage extends React.Component{
                     <button className="ui button" type="button" onClick={this.handleClick}>Add</button>    
                 </form>
                 <div>Перевод<ul>{this.state.translates.map(el => (<li>{el} </li>))}</ul></div>
+                <RedirectButton name="Back" url={backUrl} />
             </div>
         )
     }
 }
 
-export default connect(null, mapDispatchToProps)(AddWordPage);
+export default connect(null, mapDispatchToProps)(WordAddPage);

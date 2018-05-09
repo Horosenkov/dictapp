@@ -15,7 +15,13 @@ const initialState =
 const rootReducer = (state = initialState, action) => {
     switch(action.type){
         case addNewWordConst:
-            return { ...state, words: [...state.words, action.payload] };
+            var dictId = action.payload.dictId;
+            var word = action.payload.word;
+
+            var dictionary = state.dictionaries.find(dict => dict.id = dictId);
+            dictionary.words = [...dictionary.words, word];
+
+            return state;
         default:
             return state;
     }
