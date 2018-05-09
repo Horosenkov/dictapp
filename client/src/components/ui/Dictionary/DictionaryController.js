@@ -11,7 +11,6 @@ class DictionaryController extends React.Component{
     render(){
         return (
             <div>
-                <h1>Dictionary Controller</h1>
                 <Switch>
                     <Route exact path='/Dictionary'  component={MenuPage}/>
                     <Route exact path='/Dictionary/Add' component={DictionaryAddPage}/>

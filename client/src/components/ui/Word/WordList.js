@@ -2,6 +2,10 @@ import React from 'react';
 
 class WordList extends React.Component{
     render(){
+        if(this.props.words === undefined){
+            return (<div><h2>Empty dictionary</h2></div>)
+        }
+
         return (
             <div className="ui list">
                 {this.props.words.map(el =>

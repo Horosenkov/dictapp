@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 class DictionaryPage extends React.Component{
     render(){
         var dictionary = this.props.dictionaries.find(el => {
-            return el.id == this.props.match.params.id;
+            return el.id === this.props.match.params.id;
         })
 
         var addUrl = "/Dictionary/" + this.props.match.params.id + "/Word/Add";

@@ -5,7 +5,7 @@ class MenuPage extends React.Component{
     render(){
         return (
             <div>
-                <h1>This is Dictionary List</h1>
+                <h1>Dictionary Menu</h1>
                 <RedirectButton name="Create new dictionary" url="/Dictionary/Add" />
                 <RedirectButton name="To all dictionaries" url="/Dictionary/All" />
             </div>

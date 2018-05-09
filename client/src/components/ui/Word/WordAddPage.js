@@ -73,7 +73,7 @@ class WordAddPage extends React.Component{
         var backUrl = "/Dictionary/" + this.props.match.params.id;
 
         return (
-            <div className="ui grid">
+            <div>
                 <form className="ui form">
                     <SimpleField 
                         label="Word" 

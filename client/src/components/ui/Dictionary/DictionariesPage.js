@@ -12,11 +12,12 @@ class DictionariesPage extends React.Component{
     render(){
         return (<div>
                     <h2>Dictionaries Page</h2>
+                    <RedirectButton name="Back" url="/Dictionary" />
+                    <br/>
                     {this.props.dictionaries.map(dict => 
                     {
                         return <Dictionary id={dict.id} name={dict.name}/>
                     })}
-                    <RedirectButton name="Back" url="/Dictionary" />
                 </div>)
     }
 }
