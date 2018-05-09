@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import SimpleField from './SimpleField';
 import addNewWord from '../redux/actions/addNewWord';
 
+import uuid from 'uuid/v4';
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -40,7 +41,7 @@ class AddWordPage extends React.Component{
             return;
         }
 
-        this.props.addNewWord({word: this.state.word, translates: this.state.translates})
+        this.props.addNewWord({id: uuid(), word: this.state.word, translates: this.state.translates})
         this.setState({word: "", translate: "", translates: []});
     }
 
