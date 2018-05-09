@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 const mapStateToProps = state =>{
-    return {words: state.words};
+    return {dictionaries: state.dictionaries};
 }
 
 class ExamPage extends React.Component{
@@ -10,7 +10,7 @@ class ExamPage extends React.Component{
     
 
     render(){
-        return <div><ul>{this.props.words.map(_ => (<li>{_.word}</li>))}</ul></div>
+        return <div><ul>{this.props.dictionaries.map(dict => dict.words.map(_ => (<li>{_.value}</li>)))}</ul></div>
     }
 }
 

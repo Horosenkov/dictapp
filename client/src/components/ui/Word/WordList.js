@@ -1,20 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-const mapStateToProps = state =>
-{
-    return {words: state.words};
-}
-
-class WordListPage extends React.Component{
-    
+class WordList extends React.Component{
     render(){
+        if(this.props.words === undefined){
+            return (<div><h2>Empty dictionary</h2></div>)
+        }
+
         return (
             <div className="ui list">
                 {this.props.words.map(el =>
                 (<div className="item">
                     <div className="content">
-                    <label>{el.word}: </label>
+                    <label>{el.value}: </label>
                     <ul>
                     {el.translates.map(translate => (<li>{translate}</li>))}
                     </ul>
@@ -25,4 +22,4 @@ class WordListPage extends React.Component{
     }
 }
 
-export default connect(mapStateToProps)(WordListPage);
+export default WordList;

@@ -6,8 +6,7 @@ class Header extends React.Component{
         return (
             <div className="ui stackable menu">
                 <HeaderButton buttonInner="Home" url="/"/>
-                <HeaderButton buttonInner="Add word" url="/AddWord"/>
-                <HeaderButton buttonInner="Word list" url="/WordList"/>
+                <HeaderButton buttonInner="Dictionaries" url="/Dictionary"/>
                 <HeaderButton buttonInner="Exam" url="/Exam"/>
             </div>
         )
