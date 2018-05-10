@@ -17,8 +17,13 @@ const rootReducer = (state = initialState, action) => {
             var word = action.payload.word;
 
             var dictionary = state.dictionaries.find(dict => dict.id === dictId);
-            dictionary.words = [...dictionary.words, word];
-
+            if(dictionary.words === null || dictionary.words === undefined || dictionary.length < 0){
+                dictionary.words = [word];
+            }
+            else{
+                dictionary.words = [...dictionary.words, word];
+            }
+            
             return state;
         case addNewDictionaryConst:
             var dictId = uuid();
