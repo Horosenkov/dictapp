@@ -39,7 +39,5 @@ namespace api
 
             app.UseMvc();
         }
-
-        
     }
 }
