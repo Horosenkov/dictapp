@@ -13,7 +13,7 @@ namespace api
             {
                 using (var dbContext = scope.ServiceProvider.GetRequiredService<ApiDbContext>()) 
                 {
-                    
+                    dbContext.MockMigrate();
                 }
             }
             return webhost;

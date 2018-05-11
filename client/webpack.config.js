@@ -41,5 +41,11 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlWebpackPlugin]
+  plugins: [htmlWebpackPlugin],
+  devServer: {
+    // ...
+    host: '10.10.17.57',
+    port: 3000,
+    // ...
+  }
 };
