@@ -29,5 +29,9 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlWebpackPlugin]
+  plugins: [htmlWebpackPlugin],
+  devServer: {
+    host: '192.168.0.108',
+    port: 8080,
+  }
 };
