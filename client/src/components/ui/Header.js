@@ -21,13 +21,17 @@ class Header extends React.Component{
         if(this.state.hidden){
             return (
                 <div className="ui stackable menu">
-                    <button className="ui button" onClick={this.handleClick}>Show menu</button> 
+                    <button className="ui icon button item" onClick={this.handleClick}>
+                        <i class="align justify icon"></i>
+                    </button> 
                 </div>
             )    
         }
         return (
             <div className="ui stackable menu">
-                <button className="ui button" onClick={this.handleClick}>Hide</button> 
+                <button className="ui icon button item" onClick={this.handleClick}>
+                    <i class="align justify icon"></i>
+                </button> 
                 <HeaderButton buttonInner="Home" url="/"/>
                 <HeaderButton buttonInner="Dictionaries" url="/Dictionary"/>
                 <HeaderButton buttonInner="Exam" url="/Exam"/>
