@@ -17,29 +17,21 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
-            }
-          }
-        ]
+        use: [ 'style-loader', 'css-loader' ]
       },
       {
-        test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-        use: [{
-          loader: "file-loader"
-        }]
+        test: /\.(woff|woff2|ttf|svg|eot|png)$/,
+        use: [
+            {
+                loader: 'file-loader'
+            }
+        ]
       }
     ]
   },
-  plugins: [htmlWebpackPlugin]
+  plugins: [htmlWebpackPlugin],
+  devServer: {
+    host: '192.168.0.108',
+    port: 8080,
+  }
 };

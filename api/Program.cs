@@ -17,7 +17,8 @@ namespace api
         public static void Main(string[] args)
         {
             var host = 
-                BuildWebHost(args);
+                BuildWebHost(args)
+                .MockMigrate();
             
             host.Run();
         }

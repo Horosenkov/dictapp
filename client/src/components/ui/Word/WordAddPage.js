@@ -86,7 +86,7 @@ class WordAddPage extends React.Component{
                         onKeyPress={this.handleTranslateKeyPress}/>
                     <button className="ui button" type="button" onClick={this.handleClick}>Add</button>    
                 </form>
-                <div>Перевод<ul>{this.state.translates.map(el => (<li>{el} </li>))}</ul></div>
+                <div>Translations<ul>{this.state.translates.map(el => (<li>{el} </li>))}</ul></div>
                 <RedirectButton name="Back" url={backUrl} />
             </div>
         )
